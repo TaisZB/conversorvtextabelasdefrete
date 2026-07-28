@@ -40,7 +40,7 @@ class ExcelReader:
         if self._is_legacy:
             if sheet_name is None:
                 sheet_name = self.workbook.sheet_names[0]
-            return pd.read_excel(self.file_path, sheet_name=sheet_name)
+            return pd.read_excel(self.file_path, sheet_name=sheet_name, header=None)
 
         if sheet_name is None:
             return self.workbook[self.workbook.sheetnames[0]]
