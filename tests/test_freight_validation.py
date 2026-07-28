@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from core.excel_reader import ExcelReader
 from core.converter import FreightConverter
 
@@ -42,4 +44,4 @@ def test_first_freight_row_values():
     assert row.price == Decimal("33.38")
     assert row.extra_weight == Decimal("7.23")
     assert row.price_percent == Decimal("0.4")
-    
+
