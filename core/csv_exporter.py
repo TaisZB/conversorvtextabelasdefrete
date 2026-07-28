@@ -1,7 +1,7 @@
 import csv
 
 
-class CsvExporter:
+class CSVExporter:
 
     def export(self, data, filename):
 
