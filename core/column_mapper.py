@@ -10,12 +10,16 @@ from typing import Dict, Optional
 class ColumnMap:
     zip_start: Optional[int] = None
     zip_end: Optional[int] = None
+    weight_start: Optional[int] = None
+    weight_end: Optional[int] = None
     delivery_time: Optional[int] = None
+    price: Optional[int] = None
     minimum_cost: Optional[int] = None
     extra_weight: Optional[int] = None
     gris: Optional[int] = None
     toll: Optional[int] = None
     ad_valorem: Optional[int] = None
+    price_percent: Optional[int] = None
 
 
 class ColumnMapper:
@@ -35,15 +39,35 @@ class ColumnMapper:
             "ZIPCODEEND",
             "ZIP END"
         ],
+        "weight_start": [
+            "WEIGHTSTART",
+            "PESO INICIAL",
+            "PESO DE",
+            "INITIAL WEIGHT"
+        ],
+        "weight_end": [
+            "WEIGHTEND",
+            "PESO FINAL",
+            "PESO ATÉ",
+            "FINAL WEIGHT"
+        ],
         "delivery_time": [
             "PRAZO",
             "PRAZO(DIAS ÚTEIS)",
-            "LEADTIME"
+            "LEADTIME",
+            "TIMECOST"
+        ],
+        "price": [
+            "ABSOLUTEMONEYCOST",
+            "VALOR",
+            "FRETE",
+            "PRICE"
         ],
         "minimum_cost": [
             "FRETE MÍNIMO",
             "FRETE MINIMO",
-            "VALOR MÍNIMO"
+            "VALOR MÍNIMO",
+            "MINIMUMVALUEINSURANCE"
         ],
         "extra_weight": [
             "VALOR POR KG",
@@ -60,6 +84,11 @@ class ColumnMapper:
         "ad_valorem": [
             "AD VALOREM",
             "% SOBRE NF"
+        ],
+        "price_percent": [
+            "PRICEPERCENT",
+            "% SOBRE NF",
+            "PERCENTUAL"
         ]
     }
 
