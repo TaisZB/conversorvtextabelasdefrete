@@ -39,4 +39,25 @@ def test_calculate_freight_price():
     result = calculator.calculate(row)
 
     assert result == Decimal("33.51352")
-    
+    valor = calculator.calculate(row, weight=Decimal("25"))
+from decimal import Decimal
+
+from core.freight_row import FreightRow
+
+
+class FreightCalculator:
+
+    def calculate(self, row: FreightRow, weight=None):
+        price = row.price
+
+        if row.price_percent:
+            price += price * row.price_percent / Decimal("100")
+
+        if weight and weight > row.weight_end:
+            excess = weight - row.weight_end
+            price += excess * row.extra_weight
+
+        if price < row.minimum_cost:
+            price = row.minimum_cost
+
+        return price
